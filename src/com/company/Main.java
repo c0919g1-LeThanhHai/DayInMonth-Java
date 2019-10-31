@@ -7,16 +7,15 @@ import java.util.Scanner;
 public class Main {
     Scanner scanner = new Scanner(System.in);
     int month;
+
     void input() {
         System.out.print("Nhập vào tháng muốn kiểm tra: ");
         this.month = scanner.nextInt();
     }
-    public static void main(String[] args) {
-        // write your code here
-        Main m = new Main();
-        m.input();
+
+    void display() {
         String dayInMonth;
-        switch (m.month) {
+        switch (this.month) {
             case 1:
             case 3:
             case 5:
@@ -39,10 +38,17 @@ public class Main {
                 dayInMonth = "";
                 break;
         }
-        if(dayInMonth != "") {
-            System.out.printf("Tháng '%d' có %s ngày", m.month, dayInMonth);
+        if (dayInMonth != "") {
+            System.out.printf("Tháng '%d' có %s ngày", this.month, dayInMonth);
         } else {
-
+            System.out.printf("Tháng không tồn tại");
         }
+    }
+
+    public static void main(String[] args) {
+        // write your code here
+        Main m = new Main();
+        m.input();
+        m.display();
     }
 }
